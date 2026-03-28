@@ -22,18 +22,14 @@ jobs:
         python -m pip install --upgrade pip
         pip install requests flet pyinstaller pillow
         
-    - name: Prepare Ultra Version (Generator)
-      run: |
-        # Este passo gera o código com assets embutidos (somente para arquivos < 100MB)
-        python generate_ultra_sources.py
-        
     - name: Build SteamBox Ultimate
       run: |
+        # Usamos o steambox_ultra.py que já foi gerado e enviado
         python -m PyInstaller --noconfirm --onefile --windowed --name "SteamBox_Ultimate" --icon "logo.ico" "steambox_ultra.py"
         
     - name: Build Corrigir Steam (Opceional)
       run: |
-        # Só compila se o arquivo não for pesado demais para o ambiente
+        # Só compila se o arquivo existir no repositório (e couber no limite do GitHub)
         if (Test-Path "correcao_ultra.py") {
              python -m PyInstaller --noconfirm --onefile --console --name "Corrigir_Steam" --icon "logo.ico" "correcao_ultra.py"
         }
