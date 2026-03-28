@@ -1,0 +1,30 @@
+# Virtual Environment
+venv/
+.venv/
+env/
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# PyInstaller Build
+build/
+dist/
+*.spec
+
+# Base64 Temp Files (from builder)
+*_b64.txt
+
+# Large Binary Artifacts (Recommended to keep only if necessary)
+# Steambox.zip
+# latest32bitsteam.zip
+# steambox hid.zip
+
+# System Files
+.DS_Store
+.idea/
+.vscode/
+.gemini/
+app.log
